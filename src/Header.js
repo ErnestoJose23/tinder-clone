@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import PersonIcon from '@material-ui/icons/Person';
 
 function Header() {
     return (
         <div>
-            <h2>Header</h2>
+            <PersonIcon />
+
         </div>
     )
 }
