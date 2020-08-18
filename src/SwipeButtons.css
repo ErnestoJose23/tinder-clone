@@ -9,17 +9,23 @@
   background-color: white;
   box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
 }
+
 .replay {
+  color: #f5b748 !important;
 }
 
 .close {
+  color: #ec5e6f !important;
 }
 
 .star {
+  color: #62b4f9 !important ;
 }
 
 .favourite {
+  color: #76e2b3 !important;
 }
 
 .flash {
+  color: #915dd1 !important;
 }
