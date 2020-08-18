@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TinderCard from "react-tinder-card";
+import "./TinderCards.css";
+import database from "./FireBase";
 
 function TinderCards() {
-  const [people, setPeople] = useState([
-    {
-      name: "Steve jobs",
-      url:
-        "https://www.biography.com/.image/t_share/MTY2MzU3OTcxMTUwODQxNTM1/steve-jobs--david-paul-morrisbloomberg-via-getty-images.jpg",
-    },
-    {
-      name: "mark zuvkerberg",
-      url:
-        "https://imagenes.iberoeconomia.es/wp-content/uploads/2020/08/08234200/Mark-Zuckerberg-Surfing.jpg",
-    },
-  ]);
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    database
+      .collection("people")
+      .onSnapshot((snapshot) =>
+        setPeople(snapshot.docs.map((doc) => doc.data))
+      );
+  }, [people]);
+
   return (
     <div>
-      <h1>Tinder cards</h1>
-      {people.map((person) => (
-        <TinderCard>
-          <div
-            style={{ backgroundImage: `url(${person.url})` }}
-            className="card"
+      <div className="tinderCards__cardContainer">
+        {people.map((person) => (
+          <TinderCard
+            className="swipe"
+            key={person.name}
+            preventSwipe={["up", "down"]}
           >
-            <h3>{person.name}</h3>
-          </div>
-        </TinderCard>
-      ))}
+            <div
+              style={{ backgroundImage: `url(${person.url})` }}
+              className="card"
+            >
+              <h3>{person.name}</h3>
+              <h3>{person.distance}Km</h3>
+              <h4>{person.description}</h4>
+            </div>
+          </TinderCard>
+        ))}
+      </div>
+      <div className="tinderCards__cardContainer cardCentered">
+        No hay nadie nuevo cerca de ti.
+      </div>
     </div>
   );
 }
