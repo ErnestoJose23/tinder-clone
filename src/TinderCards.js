@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "./TinderCards.css";
 import database from "./FireBase";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 function TinderCards() {
   const [people, setPeople] = useState([]);
@@ -10,7 +11,7 @@ function TinderCards() {
     database
       .collection("people")
       .onSnapshot((snapshot) =>
-        setPeople(snapshot.docs.map((doc) => doc.data))
+        setPeople(snapshot.docs.map((doc) => doc.data()))
       );
   }, [people]);
 
@@ -27,9 +28,14 @@ function TinderCards() {
               style={{ backgroundImage: `url(${person.url})` }}
               className="card"
             >
-              <h3>{person.name}</h3>
-              <h3>{person.distance}Km</h3>
-              <h4>{person.description}</h4>
+              <div className="desc">
+                <h2>{person.name}</h2>
+                <div className="Location">
+                  <LocationOnIcon />
+                  <h3>{person.distance}Km</h3>
+                </div>
+                <p>{person.description}</p>
+              </div>
             </div>
           </TinderCard>
         ))}

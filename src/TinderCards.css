@@ -9,10 +9,20 @@
   box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
 }
 
-.card > h3 {
+.desc {
   position: absolute;
   bottom: 10px;
   color: white;
+}
+
+.desc > p {
+  margin-left: 15px;
+}
+
+.Location {
+  display: flex;
+  padding-top: 5px;
+  margin-left: 10px;
 }
 
 .tinderCards__cardContainer {
