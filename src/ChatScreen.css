@@ -10,3 +10,17 @@
   align-items: center;
   padding: 20px;
 }
+
+.timestamp {
+  text-align: center;
+  padding: 20px;
+  color: gray;
+}
+
+.textUser {
+  margin-left: auto;
+  background-color: #29b3cd;
+  padding: 15px;
+  border-radius: 20px;
+  color: white;
+}

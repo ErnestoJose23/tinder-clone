@@ -16,18 +16,24 @@ function ChatScreen() {
         "https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e.jpg",
       message: "Whats qweupdog?",
     },
-    { name: "hola", image: "...", message: "Whats upcsddog?" },
+    { message: "Whats upcsddog?" },
   ]);
 
   return (
     <div className="chatscreen">
-      <p>YOU MATCHED WITH HOLA ON 10/08/20</p>
-      {messages.map((message) => (
-        <div className="message">
-          <Avatar className="image" alt={message.name} src={message.image} />
-          <p className="text">{message.message}</p>
-        </div>
-      ))}
+      <p className="timestamp">YOU MATCHED WITH HOLA ON 10/08/20</p>
+      {messages.map((message) =>
+        message.name ? (
+          <div className="message">
+            <Avatar className="image" alt={message.name} src={message.image} />
+            <p className="text">{message.message}</p>
+          </div>
+        ) : (
+          <div className="message">
+            <p className="textUser">{message.message}</p>
+          </div>
+        )
+      )}
     </div>
   );
 }
