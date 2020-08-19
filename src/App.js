@@ -8,13 +8,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
         <Switch>
           <Route path="/chat">
+            <Header backButton="/" />
             <h1>Chat</h1>
           </Route>
           <Route path="/">
+            <Header />
             <TinderCards />
             <SwipeButtons />
           </Route>
