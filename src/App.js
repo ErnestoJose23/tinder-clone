@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Header";
 import Chats from "./Chats";
+import SignIn from "./SignIn";
 import TinderCards from "./TinderCards";
 import SwipeButtons from "./SwipeButtons";
 import ChatScreen from "./ChatScreen";
@@ -12,6 +13,10 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Route path="/signin">
+            <Header backButton="/" />
+            <SignIn />
+          </Route>
           <Route path="/chat/:person">
             <Header backButton="/chat" />
             <ChatScreen />
