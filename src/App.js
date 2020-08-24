@@ -9,11 +9,16 @@ import TinderCards from "./TinderCards";
 import SwipeButtons from "./SwipeButtons";
 import ChatScreen from "./ChatScreen";
 import PasswordReset from "./PasswordReset";
+import UserProvider from "./providers/UserProvider";
+import Application from "./Application";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+      <UserProvider>
+        <Application />
+      </UserProvider>
       <Router>
         <Switch>
           <Route path="/passwordReset">
