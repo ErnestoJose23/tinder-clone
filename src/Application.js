@@ -9,11 +9,11 @@ function Application() {
   return user ? (
     <ProfilePage />
   ) : (
-    <Router>
+    <div>
       <SignUp path="signUp" />
       <SignIn path="/" />
       <PasswordReset path="passwordReset" />
-    </Router>
+    </div>
   );
 }
 export default Application;

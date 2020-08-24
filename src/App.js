@@ -16,10 +16,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <UserProvider>
-        <Application />
-      </UserProvider>
       <Router>
+        <Route path="/user">
+          <UserProvider>
+            <Header backButton="/" />
+            <Application />
+          </UserProvider>
+        </Route>
         <Switch>
           <Route path="/passwordReset">
             <Header backButton="/" />

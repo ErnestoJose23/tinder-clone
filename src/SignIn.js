@@ -6,8 +6,12 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const signInWithEmailAndPasswordHandler = (event, email, password) => {
+  const signInWithEmailAndPasswordHandler = (event, email, password, auth) => {
     event.preventDefault();
+    auth.signInWithEmailAndPassword(email, password).catch((error) => {
+      setError("Error signing in with password and email!");
+      console.error("Error signing in with password and email", error);
+    });
   };
 
   const onChangeHandler = (event) => {
